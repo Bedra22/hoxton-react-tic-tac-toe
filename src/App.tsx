@@ -29,15 +29,18 @@ function App() {
         return box
       }
     })
+
+    const andTheWinnerIs = checkingWhoTheWinnerIs(borderPlaying);
+
     setFisrtPlayer(!firstPlayer);
 
     setBorder(borderPlaying)
 
-    andTheWinnerIs(borderPlaying)
+    checkingWhoTheWinnerIs(borderPlaying)
 
   }
 
-  const andTheWinnerIs = (box) => {
+  const checkingWhoTheWinnerIs = (box) => {
     for (let i = 0; i < winnigLines.length; i++) {
       const [box1, box2, box3] = winnigLines[i];
       if (box[box1] && box[box1] === box[box2] && box[box1] === box[box3]) {
@@ -48,10 +51,14 @@ function App() {
     return null;
   }
 
+
+
   return (
     <div className="App">
       <Border border={border} onClick={whosPlaying} />
 
+      <div className='winner'>The Winner is 🥁</div>
+      <h1></h1>
     </div>
   )
 }
